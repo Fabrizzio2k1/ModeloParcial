@@ -17,6 +17,10 @@ public class Main {
 				c1.crearProyecto();
 				break;
 			}
+			case 1: {
+				
+				break;
+			}
 			case 3: {
 				JOptionPane.showMessageDialog(null, c1);
 				break;

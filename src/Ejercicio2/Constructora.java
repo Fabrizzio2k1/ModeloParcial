@@ -86,19 +86,21 @@ public class Constructora {
 	}
 	
 	public int validarNumeros(String mensaje) {
-		boolean flag = false;
+		boolean flag;
 		String num = "";
-		
-		while (!flag) {
+		do {
+			flag = true;
 			num = JOptionPane.showInputDialog(mensaje);
+			while (num.isEmpty()) {
+				num = JOptionPane.showInputDialog(mensaje);
+			}
 			for (int i = 0; i < num.length(); i++) {
-				if(!Character.isAlphabetic(num.charAt(i))) {
-					flag = true;
+				if(!Character.isDigit(num.charAt(i))) {
+					flag = false;
 					break;
 				}
 			}
-		}
-		
+		} while (!flag);
 		return Integer.parseInt(num);
 	}
 
