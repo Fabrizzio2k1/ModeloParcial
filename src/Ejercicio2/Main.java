@@ -18,7 +18,19 @@ public class Main {
 				break;
 			}
 			case 1: {
-				
+				if (c1.getNombre().equals("No ingresado")) {
+					JOptionPane.showMessageDialog(null, "Todavia no se creo Proyecto...");
+				} else {
+					c1.agregarEtapas();
+				}
+				break;
+			}
+			case 2: {
+				if (c1.getNombre().equals("No ingresado")) {
+					JOptionPane.showMessageDialog(null, "Todavia no se creo Proyecto...");
+				} else {
+					JOptionPane.showMessageDialog(null, c1.getEtapas());
+				}
 				break;
 			}
 			case 3: {

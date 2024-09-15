@@ -9,7 +9,7 @@ public class Constructora {
 	private String ubicacion;
 	private String cliente;
 	private LocalDate fechaInicio;
-	private String Etapas;
+	private String etapas;
 	private LocalDate fechaProgreso;
 	
 	public Constructora() {
@@ -17,7 +17,7 @@ public class Constructora {
 		this.ubicacion = "No ingresado";
 		this.cliente = "No ingresado";
 		fechaInicio = LocalDate.now();
-		Etapas = "No ingresado";
+		etapas = "Etapas: ";
 		fechaProgreso = LocalDate.now();
 	}
 
@@ -54,11 +54,11 @@ public class Constructora {
 	}
 
 	public String getEtapas() {
-		return Etapas;
+		return etapas;
 	}
 
 	public void setEtapas(String etapas) {
-		Etapas = etapas;
+		this.etapas = etapas;
 	}
 
 	public LocalDate getFechaProgreso() {
@@ -103,11 +103,24 @@ public class Constructora {
 		} while (!flag);
 		return Integer.parseInt(num);
 	}
+	
+	public void agregarEtapas() {
+		String etapa = validarCaracteres("Ingrese el nombre de la etapa:");
+		int calificacion = evaluarEtapas(etapa);
+		fechaProgreso = fechaProgreso.plusDays(1);
+		etapas = etapas + "\nNombre: " + etapa + " Calificación: " + calificacion + " Fecha: " + fechaProgreso;
+	}
+	
+	public int evaluarEtapas(String etapa) {
+		String validacion [] = {"1","2","3","4","5","6","7","8","9"};
+		int opcion = JOptionPane.showOptionDialog(null, "Evalue su Etapa: "+etapa, null, 0, 0, null, validacion, validacion[0]);
+		return opcion+1;
+	}
 
 	@Override
 	public String toString() {
 		return "Constructora [nombre=" + nombre + ", ubicacion=" + ubicacion + ", cliente=" + cliente + ", fechaInicio="
-				+ fechaInicio + ", Etapas=" + Etapas + ", fechaProgreso=" + fechaProgreso + "]";
+				+ fechaInicio + ", Etapas=" + etapas + ", fechaProgreso=" + fechaProgreso + "]";
 	}
 	
 	
